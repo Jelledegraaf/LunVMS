@@ -13,7 +13,7 @@ use AppBundle\Form\Type\BestelOpdrachtType;
 use AppBundle\Form\Type\BestelregelType;
 use AppBundle\Form\Type\ArtikelType;
 
-class BestelopdrachtController extends Controller
+class ArtikelController extends Controller
 {
 /**
      * @Route("/artikel/nieuw", name="nieuwartikel")

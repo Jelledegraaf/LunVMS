@@ -21,15 +21,6 @@ class BestelOpdrachtType extends AbstractType
             ->add('naamLeverancier', TextType::class) //naam is b.v. een attribuut of variabele van klant
         ;
 
-        $builder
-            ->add('hoeveelheidBesteldArtikel', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
-            ->add('ontvangen', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
-            ->add('kwaliteit', TextType::class)
-        ;
         //naam is b.v. een attribuut of variabele van klant
 		//zie
 		//http://symfony.com/doc/current/forms.html#built-in-field-types
