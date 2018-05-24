@@ -14,7 +14,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need BLABLABLA
+        // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ]);
@@ -38,6 +38,6 @@ class DefaultController extends Controller
           return new Response('<html><body>De huidige voorraad is te laag, Er is/zijn '.$verschil.' artikel(en) aan de bestelserie toegevoegd.</body></html>');
       }
         else
-          return new Response('<html><body>De voorraad is vol WERKT GITHUB?? genoeg</body></html>');
+          return new Response('<html><body>De voorraad is vol genoeg</body></html>');
     }
 }
