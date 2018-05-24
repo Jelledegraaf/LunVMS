@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * bestelopdracht
  *
  * @ORM\Table(name="bestelopdracht")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\bestelopdrachtRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\BestelopdrachtRepository")
  */
 class Bestelopdracht
 {
@@ -37,14 +37,14 @@ class Bestelopdracht
     /**
      * @var string
      *
-     * @ORM\Column(name="ontvangen", type="text")
+     * @ORM\Column(name="ontvangen", type="text", nullable=true)
      */
     private $ontvangen;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="kwaliteit", type="text")
+     * @ORM\Column(name="kwaliteit", type="text", nullable=true)
      */
     private $kwaliteit;
 
