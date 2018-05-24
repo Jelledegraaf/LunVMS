@@ -20,6 +20,7 @@ class BestelregelType extends AbstractType
     $builder->add('artikelnummer', EntityType::class, array(
         'class' => 'AppBundle:Artikel',
         'choice_label' => 'omschrijving',
+        'label' => 'Artikel',
     ));
     $builder->add('bestelordernummer', EntityType::class, array(
         'class' => 'AppBundle:Bestelopdracht',
