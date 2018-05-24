@@ -35,7 +35,7 @@ class DefaultController extends Controller
           //en toegevoegd bij de database
           $huidigArtikel->setBestelserie($temp);
           $entityManager->flush();
-          return new Response('<html><body>De huidige voorraad is te laag dit project is kut, Er is/zijn '.$verschil.' artikel(en) aan de bestelserie toegevoegd.</body></html>');
+          return new Response('<html><body>De huidige voorraad is te laag, Er is/zijn '.$verschil.' artikel(en) aan de bestelserie toegevoegd.</body></html>');
       }
         else
           return new Response('<html><body>De voorraad is vol genoeg</body></html>');
