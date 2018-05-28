@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 //vul aan als je andere invoerveld-typen wilt gebruiken in je formulier
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 
 //EntiteitType vervangen door b.v. KlantType
 class ArtikelType extends AbstractType
@@ -19,26 +19,12 @@ class ArtikelType extends AbstractType
 		//gebruiken wat je nodig hebt, de id hoeft er niet bij als deze auto increment is
         $builder
             ->add('omschrijving', TextType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
             ->add('technischeSpecificaties', TextType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
             ->add('magazijnlocatie', TextType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
-            ->add('inkoopprijs', NumberType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
+            ->add('inkoopprijs', MoneyType::class) //naam is b.v. een attribuut of variabele van klant
             ->add('artikelnummerVervanging', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
             ->add('minimumVoorraad', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
             ->add('voorraad', TextType::class) //naam is b.v. een attribuut of variabele van klant
-        ;
-        $builder
             ->add('bestelserie', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
         ;
 		//zie

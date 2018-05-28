@@ -32,13 +32,33 @@ class ArtikelController extends Controller
 
         return new Response($this->render('form.html.twig', array('form' => $form->createView())));
     }
-    /**
-     * @Route ("/artikelen/alle", name="alleartikelen")
-     */
-    public function alleArtikelen(Request $request){
-        $artikelen = $this->getDoctrine()->getRepository("AppBundle:artikel")->findAll();
 
-        return new Response($this->render('artikel.html.twig', array('artikel' => $artikelen)));
-    }
+    /**
+  * @Route ("/artikel/wijzigminvoorraad/{artikelnummer} ", name="wijzigminvoorraad")
+  */
+ public function wijzigArtikelMV(Request $request, $artikelnummer){
+     $bestaandProduct = $this->getDoctrine()->getRepository("AppBundle:Artikel")->find($artikelnummer);
+     $form = $this->createForm(ArtikelType::class, $bestaandProduct);
+
+     $form->handleRequest($request);
+     if ($form->isSubmitted() && $form->isValid()) {
+         $em = $this->getDoctrine()->getManager();
+         $em->persist($bestaandProduct);
+         $em->flush();
+         return $this->redirect($this->generateurl("wijzigminvoorraad", array("artikelnummer" => $bestaandProduct->getArtikelnummer())));
+     }
+
+     return new Response($this->renderView('form.html.twig', array('form' => $form->createView())));
+ }
+
+
+  /**
+   * @Route ("/artikelen/alle", name="alleartikelen")
+   */
+  public function alleArtikelen(Request $request){
+      $artikelen = $this->getDoctrine()->getRepository("AppBundle:Artikel")->findAll();
+
+      return new Response($this->render('artikel.html.twig', array('artikelen' => $artikelen)));
+  }
 
 }
