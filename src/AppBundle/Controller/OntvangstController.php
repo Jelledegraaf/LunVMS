@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use AppBundle\Entity\Ontvangst;
 use AppBundle\Form\Type\OntvangstType;
-use AppBundle\Entity\bestelopdracht;
+use AppBundle\Entity\Bestelopdracht;
 use AppBundle\Entity\Bestelregel;
 use AppBundle\Form\Type\BestelOpdrachtType;
 use AppBundle\Form\Type\BestelregelType;
