@@ -22,20 +22,16 @@ class Bestelregel
     private $id;
 
     /**
-     * @var int
-     *
      * @ORM\ManyToOne(targetEntity="Artikel", inversedBy="bestelregels")
-     * @ORM\Column(name="artikelnummer", type="integer", nullable=true)
+     * @ORM\JoinColumn(name="artikelnummer", referencedColumnName="artikelnummer")
      */
-    private $artikel;
+    private $artikelnummer;
 
     /**
-     * @var int
-     *
      * @ORM\ManyToOne(targetEntity="Bestelopdracht", inversedBy="bestelregels")
-     * @ORM\Column(name="bestelordernummer", type="integer", nullable=true)
+     * @ORM\JoinColumn(name="bestelordernummer", referencedColumnName="bestelordernummer")
      */
-    private $bestelopdracht;
+    private $bestelordernummer;
 
     /**
      * @var int
@@ -58,13 +54,11 @@ class Bestelregel
     /**
      * Set artikelnummer
      *
-     * @param integer $artikelnummer
-     *
      * @return Bestelregel
      */
-    public function setArtikelnummer($artikel)
+    public function setArtikelnummer($artikelnummer)
     {
-        $this->artikelnummer = $artikel;
+        $this->artikelnummer = $artikelnummer;
 
         return $this;
     }
@@ -76,19 +70,17 @@ class Bestelregel
      */
     public function getArtikelnummer()
     {
-        return $this->artikel;
+        return $this->artikelnummer;
     }
 
     /**
      * Set bestelordernummer
      *
-     * @param integer $bestelordernummer
-     *
      * @return Bestelregel
      */
-    public function setBestelordernummer($bestelopdracht)
+    public function setBestelordernummer($bestelordernummer)
     {
-        $this->bestelordernummer = $bestelopdracht;
+        $this->bestelordernummer = $bestelordernummer;
 
         return $this;
     }
@@ -100,7 +92,7 @@ class Bestelregel
      */
     public function getBestelordernummer()
     {
-        return $this->bestelopdracht;
+        return $this->bestelordernummer;
     }
 
     /**

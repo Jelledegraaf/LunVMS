@@ -32,4 +32,16 @@ class BestelopdrachtController extends Controller
 
           return new Response($this->render('form.html.twig', array('form' => $form->createView())));
       }
+
+    /**
+      * @Route("/bestelopdracht/alle", name="alleBestellingen")
+      */
+      public function alleBestellingen(Request $request) {
+        $Bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findAll();
+        $bestelopdrachten = $this->getDoctrine()->getRepository("AppBundle:Bestelopdracht")->findAll();
+
+
+        return new Response($this->render('AlleBestellingen.html.twig',
+        array ('Bestelregels' => $Bestelregels, 'Bestelopdrachten' => $bestelopdrachten)));
+        }
 }

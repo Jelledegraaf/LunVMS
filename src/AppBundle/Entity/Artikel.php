@@ -26,7 +26,6 @@ class Artikel
      * @var string
      *
      * @ORM\Column(name="omschrijving", type="string", length=255, nullable=false)
-     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $omschrijving;
 
@@ -80,33 +79,10 @@ class Artikel
     private $bestelserie;
 
     /**
-     * @ORM\OneToMany(targetEntity="Bestelregel", mappedBy="artikel")
+     * @ORM\OneToMany(targetEntity="Bestelregel", mappedBy="artikelnummer")
      */
     private $bestelregels;
 
-    /**
-     * Set bestelordernummer
-     *
-     * @param integer $bestelordernummer
-     *
-     * @return Artikel
-     */
-    public function setBestelordernummer($bestelordernummer)
-    {
-        $this->bestelordernummer = $bestelordernummer;
-
-        return $this;
-    }
-
-    /**
-     * Get bestelordernummer
-     *
-     * @return int
-     */
-    public function getBestelordernummer()
-    {
-        return $this->bestelordernummer;
-    }
 
     public function getArtikelnummer(){
 		return $this->artikelnummer;
@@ -183,6 +159,10 @@ class Artikel
   public function __construct()
   {
     $this->bestelregels = new ArrayCollection();
+  }
+
+  public function __toString() {
+  return "artikelnummer";
   }
 
 }

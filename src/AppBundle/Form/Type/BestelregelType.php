@@ -5,11 +5,13 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-
-//vul aan als je andere invoerveld-typen wilt gebruiken in je formulier
+use App\Entity\Artikel;
+use App\Entity\Bestelopdracht;
+use App\Entity\Bestelregel;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+
 
 //EntiteitType vervangen door b.v. KlantType
 class BestelregelType extends AbstractType

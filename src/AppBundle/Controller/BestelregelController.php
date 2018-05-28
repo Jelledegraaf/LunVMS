@@ -19,8 +19,8 @@ class BestelregelController extends Controller
      * @Route("/bestelregel/nieuw", name="bestelregelnieuw")
      */
     public function nieuweBestelRegel(Request $request) {
-        $nieuweBestelRegel = new bestelRegel();
-        $form = $this->createForm(bestelregelType::class, $nieuweBestelRegel);
+        $nieuweBestelRegel = new Bestelregel();
+        $form = $this->createForm(BestelregelType::class, $nieuweBestelRegel);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {

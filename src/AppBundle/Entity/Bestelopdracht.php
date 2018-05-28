@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * bestelopdracht
@@ -22,43 +23,19 @@ class Bestelopdracht
     /**
      * @var int
      * @ORM\Id
-     * @ORM\Column(name="Bestelordernummer", type="integer", unique=true)
+     * @ORM\Column(name="bestelordernummer", type="integer", unique=true)
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $bestelordernummer;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="HoeveelheidBesteldArtikel", type="integer", nullable=true)
-     */
-    private $hoeveelheidBesteldArtikel;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ontvangen", type="text", nullable=true)
-     */
-    private $ontvangen;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="kwaliteit", type="text", nullable=true)
-     */
-    private $kwaliteit;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Bestelregel", mappedBy="bestelopdracht")
+     * @ORM\OneToMany(targetEntity="Bestelregel", mappedBy="bestelordernummer")
      */
     private $bestelregels;
 
     /**
      * Set bestelregels
      *
-     * @param integer $bestelregels
-     *
-     * @return Bestelopdracht
      */
     public function setBestelregels($bestelregels)
     {
@@ -102,20 +79,6 @@ class Bestelopdracht
     }
 
     /**
-     * Set bestelordernummer
-     *
-     * @param integer $bestelordernummer
-     *
-     * @return bestelopdracht
-     */
-    public function setBestelordernummer($bestelordernummer)
-    {
-        $this->bestelordernummer = $bestelordernummer;
-
-        return $this;
-    }
-
-    /**
      * Get bestelordernummer
      *
      * @return int
@@ -125,75 +88,13 @@ class Bestelopdracht
         return $this->bestelordernummer;
     }
 
-    /**
-     * Set hoeveelheidBesteldArtikel
-     *
-     * @param integer $hoeveelheidBesteldArtikel
-     *
-     * @return bestelopdracht
-     */
-    public function setHoeveelheidBesteldArtikel($hoeveelheidBesteldArtikel)
-    {
-        $this->hoeveelheidBesteldArtikel = $hoeveelheidBesteldArtikel;
 
-        return $this;
-    }
+    public function __toString() {
+    return "ordernummer";
+  }
 
-    /**
-     * Get hoeveelheidBesteldArtikel
-     *
-     * @return int
-     */
-    public function getHoeveelheidBesteldArtikel()
-    {
-        return $this->hoeveelheidBesteldArtikel;
-    }
-
-    /**
-     * Set ontvangen
-     *
-     * @param string $ontvangen
-     *
-     * @return bestelopdracht
-     */
-    public function setOntvangen($ontvangen)
-    {
-        $this->ontvangen = $ontvangen;
-
-        return $this;
-    }
-
-    /**
-     * Get ontvangen
-     *
-     * @return string
-     */
-    public function getOntvangen()
-    {
-        return $this->ontvangen;
-    }
-
-    /**
-     * Set kwaliteit
-     *
-     * @param string $kwaliteit
-     *
-     * @return bestelopdracht
-     */
-    public function setKwaliteit($kwaliteit)
-    {
-        $this->kwaliteit = $kwaliteit;
-
-        return $this;
-    }
-
-    /**
-     * Get kwaliteit
-     *
-     * @return string
-     */
-    public function getKwaliteit()
-    {
-        return $this->kwaliteit;
-    }
+  public function __construct()
+  {
+    $this->bestelregels = new ArrayCollection();
+  }
 }
