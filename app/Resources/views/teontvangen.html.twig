@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    <h1>Te ontvangen overzicht</h1>
+
+    <ol>
+    {% for ontvangsten in ontvangsten %}
+
+        <li>
+            {{ ontvangsten.ontvangen }} {{ ontvangsten.leveranciersnaam }}
+        </li>
+
+    {% endfor %}
+    </ol>
+
+{% endblock %}
