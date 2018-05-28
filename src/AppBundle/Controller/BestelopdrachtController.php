@@ -38,10 +38,10 @@ class BestelopdrachtController extends Controller
       */
       public function alleBestellingen(Request $request) {
         $Bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findAll();
-        $bestelopdrachten = $this->getDoctrine()->getRepository("AppBundle:Bestelopdracht")->findAll();
+        $Bestelopdrachten = $this->getDoctrine()->getRepository("AppBundle:Bestelopdracht")->findAll();
 
 
         return new Response($this->render('AlleBestellingen.html.twig',
-        array ('Bestelregels' => $Bestelregels, 'Bestelopdrachten' => $bestelopdrachten)));
+        array ('Bestelregels' => $Bestelregels, 'Bestelopdrachten' => $Bestelopdrachten)));
         }
 }
