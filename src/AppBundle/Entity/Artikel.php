@@ -84,7 +84,6 @@ class Artikel
      * @var integer
      *
      * @ORM\Column(name="artikelnummervervanging", type="integer", nullable=false)
-     * @ORM\OneToOne(targetEntity="Artikel", mappedBy="artikelnummerVervanging")
      */
     private $artikelnummerVervanging;
 

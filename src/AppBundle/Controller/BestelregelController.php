@@ -15,9 +15,9 @@ use AppBundle\Form\Type\ArtikelType;
 
 class BestelregelController extends Controller
 {
-    /**
-    * @Route("/bestelregel/nieuw", name="bestelregelnieuw")
-    */
+/**
+     * @Route("/bestelregel/nieuw", name="bestelregelnieuw")
+     */
     public function nieuweBestelRegel(Request $request) {
         $nieuweBestelRegel = new Bestelregel();
         $form = $this->createForm(BestelregelType::class, $nieuweBestelRegel);
@@ -29,15 +29,7 @@ class BestelregelController extends Controller
             $em->flush();
             return $this->redirect($this->generateurl("bestelregelnieuw"));
         }
-        return new Response($this->render('form.html.twig', array('form' => $form->createView())));
+
+        return new Response($this->renderView('form.html.twig', array('form' => $form->createView())));
     }
-
-    /**
-    * @Route("/bestelregel/{bestelordernummer}", name="alleBestelregels")
-    */
-    public function bestelregelsOpBoNr(Request $request, $bestelordernummer) {
-      $bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findByBestelordernummer("$bestelordernummer");
-
-      return new Response($this->render('AlleBestelregels.html.twig', array ('Bestelregels' => $bestelregels)));
-      }
 }
