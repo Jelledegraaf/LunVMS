@@ -33,16 +33,11 @@ class BestelregelController extends Controller
     }
 
     /**
-     * @Route("/besteregel/{bestelordernummer}", name="bestelregelBekijken")
-     */
-    public function bestelregelOpOprdernummer(Request $request, $bestelordernummer) {
+    * @Route("/bestelregel/{bestelordernummer}", name="alleBestelregels")
+    */
+    public function bestelregelsOpBoNr(Request $request, $bestelordernummer) {
       $bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findByBestelordernummer("$bestelordernummer");
-      $tekst = "";
-      foreach ($bestelregels as $bestelregel){
-        $tekst = $tekst . $bestelregel->getArtikelnummer() . " " . $bestelregel->getAantal() . "<br >";
+
+      return new Response($this->render('AlleBestelregels.html.twig', array ('Bestelregels' => $bestelregels)));
       }
-
-      return new Response ($tekst);
-    }
-
 }
