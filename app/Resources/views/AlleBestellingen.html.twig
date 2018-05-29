@@ -1,10 +1,15 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+
 	<h1>Alle Bestellingen</h1>
+
 	{% for Bestelopdracht in Bestelopdrachten %} , {% for Bestelregel in Bestelregels %}
+
 		<ul>
 			<div>{{Bestelopdracht.bestelordernummer}}, {{Bestelopdracht.naamLeverancier}}, {{Bestelregel.aantal}} </div>
+
 		</ul>
+
 	{% endfor %}
   {% endfor %}
 {% endblock %}
