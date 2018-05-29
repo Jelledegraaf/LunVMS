@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+<h1>Artikelen overzicht</h1>
+<table>
+    <tr>
+        <td>Productnaam</td>
+        <td>Technische Specificaties</td>
+        <td>Magazijn Locatie</td>
+        <td>Inkoopprijs</td>
+        <td>Vervangend Artikel</td>
+        <td>Minimum Voorraad</td>
+        <td>Voorraad</td>
+        <td>Bestelserie</td>
+    </tr>
+
+    {% for artikel in artikelen %}
+
+      <tr>
+          <td>{{ artikel.omschrijving }}</td>
+          <td>{{ artikel.technischeSpecificaties }}</td>
+          <td>{{ artikel.magazijnlocatie }}</td>
+          <td>{{ artikel.inkoopprijs }}</td>
+          <td>{{ artikel.artikelnummerVervanging }}</td>
+          <td>{{ artikel.minimumvoorraad }}</td>
+          <td>{{ artikel.voorraad }}</td>
+          <td>{{ artikel.minimumvoorraad - artikel.voorraad }}</td>
+
+          <td><a href="{{ path('wijzigminvoorraad', {'artikelnummer':artikel.artikelnummer}) }}">Wijzigen minimum voorraad</a></td>
+      </tr>
+
+    {% endfor %}
+
+</table>
+
+
+
+
+{% endblock %}
