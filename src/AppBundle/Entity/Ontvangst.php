@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * ontvangst
  *
  * @ORM\Table(name="bestelregel")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ontvangstRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\OntvangstRepository")
  */
 class Ontvangst
 {
