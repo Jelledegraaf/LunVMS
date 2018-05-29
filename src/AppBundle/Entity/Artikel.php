@@ -20,6 +20,7 @@ class Artikel
    *
    * @ORM\Column(name="artikelnummer", type="integer")
    * @ORM\Id
+   * @ORM\GeneratedValue(strategy="AUTO")
    */
   private $artikelnummer;
 
