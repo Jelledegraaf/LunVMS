@@ -4,7 +4,7 @@
 
           <!--Link naar Home-->
             <li>
-                <a href="index.html"><i class="fa fa-home fa-fw"></i>Home</a>
+                <a href="{{ path('homepage') }}"><i class="fa fa-home fa-fw"></i>Home</a>
             </li>
 
             <!--Kopje Artikelen-->
@@ -13,7 +13,7 @@
                 <ul class="nav nav-second-level">
                     <!--Link naar Overzicht Artikelen-->
                     <li>
-                        <a href="{{ path('alleartikelen') }}"><i class="fa fa-tag fa-fw"></i>Overzicht Artikelen</a>
+                        <a href="{{ path('alleartikelen') }}"><i class="fa fa-list-alt fa-fw"></i>Overzicht Artikelen</a>
                     </li>
                     <!--Link naar Nieuwe Bestelling-->
                     <li>
@@ -47,7 +47,7 @@
                     </li>
                     <!--Link naar Nieuwe Ontvangst-->
                     <li>
-                        <a href="{{ path('bestelopdrachtnieuw') }}"><i class="fa fa-gift fa-fw"></i>Nieuwe Ontvangst</a>
+                        <a href="{{ path('ontvangstnieuw') }}"><i class="fa fa-gift fa-fw"></i>Nieuwe Ontvangst</a>
                     </li>
                 </ul>
             </li>
