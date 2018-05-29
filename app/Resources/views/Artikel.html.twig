@@ -5,6 +5,7 @@
 <h1>Artikelen overzicht</h1>
 <table>
     <tr>
+        <td>Artikel nummer</td>
         <td>Productnaam</td>
         <td>Technische Specificaties</td>
         <td>Magazijn Locatie</td>
@@ -18,6 +19,7 @@
     {% for artikel in artikelen %}
 
       <tr>
+          <td>{{ artikel.artikelnummer }}</td>
           <td>{{ artikel.omschrijving }}</td>
           <td>{{ artikel.technischeSpecificaties }}</td>
           <td>{{ artikel.magazijnlocatie }}</td>
