@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 	<h1>Alle Bestellingen</h1>
-	{% for Bestelopdracht in Bestelopdrachten %} , {% for Bestelregel in Bestelregels %}
+	{% for Bestelopdracht in Bestelopdrachten %}
 		<ul>
-			<div>{{Bestelopdracht.bestelordernummer}}, {{Bestelopdracht.naamLeverancier}}, {{Bestelregel.aantal}} </div>
+			<div>{{Bestelopdracht.bestelordernummer}}, {{Bestelopdracht.naamLeverancier}} </div>
+			<a href="{{path('bestelregelBekijken',{'bestelordernummer':Bestelopdracht.bestelordernummer})}}">Bekijken</a>
 		</ul>
-	{% endfor %}
   {% endfor %}
 {% endblock %}

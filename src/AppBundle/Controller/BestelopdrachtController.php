@@ -15,9 +15,9 @@ use AppBundle\Form\Type\ArtikelType;
 
 class BestelopdrachtController extends Controller
 {
-  /**
-       * @Route("/bestelopdracht/nieuw", name="bestelopdrachtnieuw")
-       */
+      /**
+      * @Route("/bestelopdracht/nieuw", name="bestelopdrachtnieuw")
+      */
       public function nieuweBestelOpdracht(Request $request) {
           $nieuweBestelOpdracht = new bestelOpdracht();
           $form = $this->createForm(bestelOpdrachtType::class, $nieuweBestelOpdracht);
@@ -27,21 +27,22 @@ class BestelopdrachtController extends Controller
               $em = $this->getDoctrine()->getManager();
               $em->persist($nieuweBestelOpdracht);
               $em->flush();
-              return $this->redirect($this->generateurl("bestelregelnieuw"));
+
+          $bestelordernummer = $nieuweBestelOpdracht->getBestelordernummer();
+            return $this->redirect($this->generateurl("bestelregelnieuw"));
           }
 
           return new Response($this->render('form.html.twig', array('form' => $form->createView())));
       }
 
-    /**
+      /**
       * @Route("/bestelopdracht/alle", name="alleBestellingen")
       */
       public function alleBestellingen(Request $request) {
-        $Bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findAll();
         $Bestelopdrachten = $this->getDoctrine()->getRepository("AppBundle:Bestelopdracht")->findAll();
 
 
-        return new Response($this->render('AlleBestellingen.html.twig',
-        array ('Bestelregels' => $Bestelregels, 'Bestelopdrachten' => $Bestelopdrachten)));
+        return new Response($this->render('AlleBestellingen.html.twig', array ('Bestelopdrachten' => $Bestelopdrachten)));
         }
+
 }
