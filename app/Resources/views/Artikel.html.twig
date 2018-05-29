@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block body %}
 
-
+<br>
+<div class="panel panel-default">
+  <div class="panel-heading">
 <h1>Artikelen overzicht</h1>
-<table>
+</div>
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped">
     <tr>
         <td>Productnaam</td>
         <td>Technische Specificaties</td>
@@ -13,6 +18,7 @@
         <td>Minimum Voorraad</td>
         <td>Voorraad</td>
         <td>Bestelserie</td>
+        <td>Handelingen</td>
     </tr>
 
     {% for artikel in artikelen %}
@@ -33,7 +39,9 @@
     {% endfor %}
 
 </table>
-
+</div>
+</div>
+</div>
 
 
 
