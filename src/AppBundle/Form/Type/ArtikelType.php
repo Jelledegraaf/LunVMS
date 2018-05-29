@@ -25,7 +25,6 @@ class ArtikelType extends AbstractType
             ->add('artikelnummerVervanging', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
             ->add('minimumVoorraad', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
             ->add('voorraad', TextType::class) //naam is b.v. een attribuut of variabele van klant
-            ->add('bestelserie', IntegerType::class) //naam is b.v. een attribuut of variabele van klant
         ;
 		//zie
 		//http://symfony.com/doc/current/forms.html#built-in-field-types
