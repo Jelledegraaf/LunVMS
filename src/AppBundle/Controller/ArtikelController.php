@@ -58,7 +58,7 @@ class ArtikelController extends Controller
   public function alleArtikelen(Request $request){
       $artikelen = $this->getDoctrine()->getRepository("AppBundle:Artikel")->findAll();
 
-      return new Response($this->renderView('artikel.html.twig', array('artikelen' => $artikelen)));
+      return new Response($this->render('artikel.html.twig', array('artikelen' => $artikelen)));
   }
 
 }
