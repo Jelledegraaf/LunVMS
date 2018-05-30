@@ -12,6 +12,7 @@ use AppBundle\Entity\Bestelopdracht;
 use AppBundle\Entity\Bestelregel;
 use AppBundle\Form\Type\BestelOpdrachtType;
 use AppBundle\Form\Type\BestelregelType;
+use AppBundle\Form\Type\OntvangstType;
 
 class OntvangstController extends Controller
 
