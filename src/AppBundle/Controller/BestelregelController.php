@@ -23,7 +23,7 @@ class BestelregelController extends Controller
     public function nieuweBestelRegel(Request $request) {
         $nieuweBestelRegel = new Bestelregel();
         $form = $this->createForm(BestelregelType::class, $nieuweBestelRegel);
-
+        $nieuweBestelRegel->setOntvangen(0);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -49,7 +49,7 @@ class BestelregelController extends Controller
           * @Route("/alleBestelregels/teOntvangen/0", name="teOntvangenBestelregels")
           */
           public function teOnvangenBestelregels(Request $request) {
-            $Bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findByontvangen("0");
+            $Bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findByontvangen('0');
 
 
             return new Response($this->render('NogTeOntvangen.html.twig', array ('Bestelregels' => $Bestelregels)));
