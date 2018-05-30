@@ -43,4 +43,32 @@ class BestelregelController extends Controller
       }
 
 
+          /**
+          * @Route("/alleBestelregels/teOntvangen/{ontvangen}", name="teOntvangenBestelregels")
+          */
+          public function alleBestelregels(Request $request, $ontvangen) {
+            $Bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findByontvangen($ontvangen);
+
+
+            return new Response($this->render('AlleBestelregels.html.twig', array ('Bestelregels' => $Bestelregels)));
+            }
+
+            /**
+            * @Route("/bestelregel/wijzig/{id}", name="ontvangstWijzigen")
+            */
+            public function wijzigBestelregel(Request $request, $id) {
+            $huidigBestelregel = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->find($id);
+            $form = $this->createForm(OntvangstType::class, $huidigBestelregel);
+
+            $form->handleRequest($request);
+              if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($huidigBestelregel);
+                $em->flush();
+                return $this->redirect($this->generateurl("/"));
+              }
+
+            return new Response($this->render('form.html.twig', array('form' => $form->createView())));
+            }
+
 }

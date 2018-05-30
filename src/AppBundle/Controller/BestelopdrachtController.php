@@ -45,4 +45,22 @@ class BestelopdrachtController extends Controller
         return new Response($this->render('AlleBestellingen.html.twig', array ('Bestelopdrachten' => $Bestelopdrachten)));
         }
 
+        /**
+        * @Route("/bestelregel/wijzig/{id}", name="ontvangstWijzigen")
+        */
+          public function wijzigBestelregel(Request $request, $id) {
+          $huidigBestelregel = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->find("$id");
+          $form = $this->createForm(BestelregelType::class, $huidigBestelregel);
+
+          $form->handleRequest($request);
+          if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($huidigBestelregel);
+            $em->flush();
+            return $this->redirect($this->generateurl("/"));
+          }
+
+          return new Response($this->render('form.html.twig', array('form' => $form->createView())));
+          }
+
 }

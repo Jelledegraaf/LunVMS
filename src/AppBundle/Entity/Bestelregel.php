@@ -40,6 +40,34 @@ class Bestelregel
      */
     private $aantal;
 
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="ontvangstdatum", type="date", nullable=true)
+     */
+    private $ontvangstdatum;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="kwaliteit", type="boolean", nullable=true)
+     */
+    private $kwaliteit;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="afgekeurd", type="boolean", nullable=true)
+     */
+    private $afgekeurd;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="ontvangen", type="integer", nullable=true)
+     */
+    private $ontvangen;
+
 
     /**
      * Get id
@@ -117,5 +145,103 @@ class Bestelregel
     public function getAantal()
     {
         return $this->aantal;
+    }
+
+
+
+    /**
+     * Set ontvangstdatum
+     *
+     * @param \DateTime $ontvangstdatum
+     *
+     * @return Bestelregel
+     */
+    public function setOntvangstdatum($ontvangstdatum)
+    {
+        $this->ontvangstdatum = $ontvangstdatum;
+
+        return $this;
+    }
+
+    /**
+     * Get ontvangstdatum
+     *
+     * @return \DateTime
+     */
+    public function getOntvangstdatum()
+    {
+        return $this->ontvangstdatum;
+    }
+
+    /**
+     * Set kwaliteit
+     *
+     * @param boolean $kwaliteit
+     *
+     * @return Bestelregel
+     */
+    public function setKwaliteit($kwaliteit)
+    {
+        $this->kwaliteit = $kwaliteit;
+
+        return $this;
+    }
+
+    /**
+     * Get kwaliteit
+     *
+     * @return bool
+     */
+    public function getKwaliteit()
+    {
+        return $this->kwaliteit;
+    }
+
+    /**
+     * Set afgekeurd
+     *
+     * @param boolean $afgekeurd
+     *
+     * @return Bestelregel
+     */
+    public function setAfgekeurd($afgekeurd)
+    {
+        $this->afgekeurd = $afgekeurd;
+
+        return $this;
+    }
+
+    /**
+     * Get afgekeurd
+     *
+     * @return bool
+     */
+    public function getAfgekeurd()
+    {
+        return $this->afgekeurd;
+    }
+
+    /**
+     * Set ontvangen
+     *
+     * @param integer $ontvangen
+     *
+     * @return Bestelregel
+     */
+    public function setOntvangen($ontvangen)
+    {
+        $this->ontvangen = $ontvangen;
+
+        return $this;
+    }
+
+    /**
+     * Get ontvangen
+     *
+     * @return int
+     */
+    public function getOntvangen()
+    {
+        return $this->ontvangen;
     }
 }
