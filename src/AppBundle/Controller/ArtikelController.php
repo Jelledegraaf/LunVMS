@@ -12,6 +12,7 @@ use AppBundle\Entity\Artikel;
 use AppBundle\Form\Type\BestelOpdrachtType;
 use AppBundle\Form\Type\BestelregelType;
 use AppBundle\Form\Type\ArtikelType;
+use AppBundle\Form\Type\ArtikelWijzigMinType;
 use AppBundle\Form\Type\ArtikelZoeken;
 
 class ArtikelController extends Controller
@@ -35,9 +36,9 @@ class ArtikelController extends Controller
     }
 
     /**
-  * @Route ("/artikel/wijzigminvoorraad/{artikelnummer} ", name="wijzigminvoorraad")
+  * @Route ("/artikel/wijzig/{artikelnummer} ", name="wijzigartikel")
   */
- public function wijzigArtikelMV(Request $request, $artikelnummer){
+ public function wijzigArtikel(Request $request, $artikelnummer){
      $bestaandProduct = $this->getDoctrine()->getRepository("AppBundle:Artikel")->find($artikelnummer);
      $form = $this->createForm(ArtikelType::class, $bestaandProduct);
 
@@ -46,11 +47,30 @@ class ArtikelController extends Controller
          $em = $this->getDoctrine()->getManager();
          $em->persist($bestaandProduct);
          $em->flush();
-         return $this->redirect($this->generateurl("wijzigminvoorraad", array("artikelnummer" => $bestaandProduct->getArtikelnummer())));
+         return $this->redirect($this->generateurl("wijzigArtikel", array("artikelnummer" => $bestaandProduct->getArtikelnummer())));
      }
 
      return new Response($this->renderView('form.html.twig', array('form' => $form->createView())));
  }
+
+
+ /**
+* @Route ("/artikel/wijzigminvoorraad/{artikelnummer} ", name="wijzigminvoorraad")
+*/
+public function wijzigArtikelMV(Request $request, $artikelnummer){
+  $bestaandProduct = $this->getDoctrine()->getRepository("AppBundle:Artikel")->find($artikelnummer);
+  $form = $this->createForm(ArtikelWijzigMinType::class, $bestaandProduct);
+
+  $form->handleRequest($request);
+  if ($form->isSubmitted() && $form->isValid()) {
+      $em = $this->getDoctrine()->getManager();
+      $em->persist($bestaandProduct);
+      $em->flush();
+      return $this->redirect($this->generateurl("wijzigminvoorraad", array("artikelnummer" => $bestaandProduct->getArtikelnummer())));
+  }
+
+  return new Response($this->renderView('form.html.twig', array('form' => $form->createView())));
+}
 
 
   /**
