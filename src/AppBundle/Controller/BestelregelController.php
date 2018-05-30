@@ -12,6 +12,8 @@ use AppBundle\Entity\Artikel;
 use AppBundle\Form\Type\BestelOpdrachtType;
 use AppBundle\Form\Type\BestelregelType;
 use AppBundle\Form\Type\ArtikelType;
+use AppBundle\Form\Type\OntvangstType;
+use AppBundle\Form\Type\NieuwOntvangstType;
 
 class BestelregelController extends Controller
 {
@@ -58,7 +60,7 @@ class BestelregelController extends Controller
             */
             public function wijzigBestelregel(Request $request, $id) {
             $huidigBestelregel = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->find($id);
-            $form = $this->createForm(OntvangstType::class, $huidigBestelregel);
+            $form = $this->createForm(NieuwOntvangstType::class, $huidigBestelregel);
 
             $form->handleRequest($request);
               if ($form->isSubmitted() && $form->isValid()) {

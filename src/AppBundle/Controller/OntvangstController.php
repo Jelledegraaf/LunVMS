@@ -12,7 +12,7 @@ use AppBundle\Entity\Bestelopdracht;
 use AppBundle\Entity\Bestelregel;
 use AppBundle\Form\Type\BestelOpdrachtType;
 use AppBundle\Form\Type\BestelregelType;
-use AppBundle\Form\Type\OntvangstType;
+use AppBundle\Form\Type\NieuwOntvangstType;
 
 class OntvangstController extends Controller
 
@@ -23,7 +23,7 @@ class OntvangstController extends Controller
   */
   public function nieuweOntvangst(Request $request) {
       $nieuweOntvangst = new Ontvangst();
-      $form = $this->createForm(ontvangstType::class, $nieuweOntvangst);
+      $form = $this->createForm(OntvangstType::class, $nieuweOntvangst);
 
 
       $form->handleRequest($request);
@@ -42,7 +42,7 @@ class OntvangstController extends Controller
    */
   public function ontvangstToevoegen(Request $request, $id) {
   $ontvangst = new Ontvangst();
-      $form = $this->createForm(ontvangstType::class, $nieuweOntvangst);
+      $form = $this->createForm(OntvangstType::class, $nieuweOntvangst);
 
       $form->handleRequest($request);
       if ($form->isSubmitted() && $form->isValid()) {
