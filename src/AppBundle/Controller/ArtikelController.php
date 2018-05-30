@@ -12,6 +12,7 @@ use AppBundle\Entity\Artikel;
 use AppBundle\Form\Type\BestelOpdrachtType;
 use AppBundle\Form\Type\BestelregelType;
 use AppBundle\Form\Type\ArtikelType;
+use AppBundle\Form\Type\ArtikelZoeken;
 
 class ArtikelController extends Controller
 {
@@ -60,5 +61,79 @@ class ArtikelController extends Controller
 
       return new Response($this->render('artikel.html.twig', array('artikelen' => $artikelen)));
   }
+
+
+  /**
+  * @Route("/artikel/zoeken", name="zoekenartikel")
+  */
+public function zoekArtikel(Request $request) {
+
+  //  $nieuwArtikel = new Artikel();
+    $form = $this->createForm(ArtikelZoeken::class);
+
+    $form->handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid()) {
+        $artikel = $form->getData();
+
+        $artikelen = $this->getDoctrine()->getRepository("AppBundle:Artikel")->findBy(
+        array('omschrijving'=> $artikel->getOmschrijving())
+        );
+        return new Response($this->render('zoekresultaat.html.twig', array('artikelen' => $artikelen)));
+
+     }
+
+
+      return new Response($this->render('zoekformulier.html.twig', array('form' => $form->createView())));
+  }
+
+
+  //public function searchAction(Request $request) {
+    //$omschrijving = $request->get('omschrijving');
+
+    //$repository = $this->getDoctrine()->getRepository(Artikel::class);
+
+
+
+    //aanpassen naar werkend Formulier
+   // return $this->render('.......:search.html.twig'
+    //, array('artikelen'=> $artikelen));
+
+
+  //$em = $this->getDoctrine()->getManager();
+  //die();
+
+
+    // Formulier aanmaken
+    //$form = $this->createForm(ArtikelZoeken::class, $nieuwArtikel);
+
+  //  $form->handleRequest($request);
+
+    // Uitvoeren als op zoeken is geklikt
+  //  if ($form->isSubmitted() && $form->isValid()) {
+
+        // Data ophalen, omschrijving is ingevuld
+      //  $data = $request->request->get('omschrijving');
+      //  $em = $this->getDoctrine()->getManager();
+
+        // Query uitvoeren
+      //  $query = $em->createQuery('SELECT * FROM `artikel` WHERE `magazijnlocatie` LIKE :data')->setParameter('data',$data);
+
+      //  $resultaat = $query->getResult();
+
+        // Artikel tonen
+      //  return $this->render
+
+
+      //  return $this->redirect($this->generateurl("zoekenartikel"));
+    //}
+
+    //return new Response($this->render('form.html.twig', array('form' => $form->createView())));
+
+
+//  <form method="POST" action="{{ path (' route_naar_zoekfunctie') }}">
+//  <input type="text" name="zoekwaarde" />
+//  <input type="submit" name="verzendknop" />
+//  </form>
+//}
 
 }
