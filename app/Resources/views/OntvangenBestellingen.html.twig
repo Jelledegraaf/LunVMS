@@ -13,14 +13,21 @@
         <td>Aantal</td>
     </tr>
 
-	{% for Bestelregel in Bestelregels %}
+    {% for Bestelregel in Bestelregels %}
+      {% for artikel in Artikelen %}
 
-      <tr>
+        <tr>
           <td>{{Bestelregel.artikelnummer}}</td>
+            <td>
+if bestelregel.artikelnummer == artikel.artikelid
+            {{artikel.naam}}
+endif
+            </td>
           <td>{{Bestelregel.aantal}}</td>
-      </tr>
+          </tr>
 
-    {% endfor %}
+        {% endfor %}
+      {% endfor %}
 
 </table>
 </div>
