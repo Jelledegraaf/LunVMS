@@ -77,7 +77,7 @@ class BestelregelController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($huidigBestelregel);
                 $em->flush();
-                return $this->redirect($this->generateurl("/"));
+                return $this->redirect($this->generateurl("ontvangenBestelregels"));
               }
 
             return new Response($this->render('form.html.twig', array('form' => $form->createView())));
