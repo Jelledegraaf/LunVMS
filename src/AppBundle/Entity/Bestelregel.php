@@ -71,7 +71,7 @@ class Bestelregel
     /**
        * @var string
          *
-         * @ORM\Column(name="afkeuringscode", type="string")
+         * @ORM\Column(name="afkeuringscode", type="string", nullable=true)
          */
         private $afkeuringscode;
 
