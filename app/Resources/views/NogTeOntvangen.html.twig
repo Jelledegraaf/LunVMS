@@ -3,7 +3,7 @@
 <br>
 <div class="panel panel-default">
   <div class="panel-heading">
-<h1>Bestelde artikelen</h1>
+<h1>Nog te ontvangen bestellingen</h1>
 </div>
 <div class="panel-body">
 <div class="table-responsive">
@@ -11,6 +11,7 @@
     <tr>
         <td>Artikel</td>
         <td>Aantal</td>
+        <td>Ontvangst</td>
     </tr>
 
 	{% for Bestelregel in Bestelregels %}
@@ -18,6 +19,7 @@
       <tr>
           <td>{{Bestelregel.artikelnummer}}</td>
           <td>{{Bestelregel.aantal}}</td>
+          <td><a href="{{ path('ontvangstWijzigen',{'id':Bestelregel.id}) }}"><i class="fa fa-gift fa-fw"></i>Bijwerken</a></td>
       </tr>
 
     {% endfor %}

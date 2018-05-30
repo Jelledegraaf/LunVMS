@@ -46,14 +46,24 @@ class BestelregelController extends Controller
 
 
           /**
-          * @Route("/alleBestelregels/teOntvangen/{ontvangen}", name="teOntvangenBestelregels")
+          * @Route("/alleBestelregels/teOntvangen/0", name="teOntvangenBestelregels")
           */
-          public function alleBestelregels(Request $request, $ontvangen) {
-            $Bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findByontvangen($ontvangen);
+          public function teOnvangenBestelregels(Request $request) {
+            $Bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findByontvangen("0");
 
 
-            return new Response($this->render('AlleBestelregels.html.twig', array ('Bestelregels' => $Bestelregels)));
+            return new Response($this->render('NogTeOntvangen.html.twig', array ('Bestelregels' => $Bestelregels)));
             }
+
+            /**
+            * @Route("/alleBestelregels/teOntvangen/1", name="ontvangenBestelregels")
+            */
+            public function ontvangenBestelregels(Request $request) {
+              $Bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findByontvangen("1");
+
+
+              return new Response($this->render('OntvangenBestellingen.html.twig', array ('Bestelregels' => $Bestelregels)));
+              }
 
             /**
             * @Route("/bestelregel/wijzig/{id}", name="ontvangstWijzigen")
