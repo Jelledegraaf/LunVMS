@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+
+<h1>zoekresultaten</h1>
+
+<table>
+    <tr>
+        <td>Magazijn Locatie</td>
+
+    </tr>
+
+    {% for artikel in artikelen %}
+
+      <tr>
+          <td>{{ artikel.magazijnlocatie }}</td>
+
+      </tr>
+
+    {% endfor %}
+
+</table>
+
+
+
+
+{% endblock %}
