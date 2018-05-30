@@ -19,7 +19,8 @@
         <td>Minimum Voorraad</td>
         <td>Voorraad</td>
         <td>Bestelserie</td>
-        <td>Handelingen</td>
+        <td>Wijzig Artikel</td>
+        <td>Wijzig minimale voorraad</td>
     </tr>
 
     {% for artikel in artikelen %}
@@ -33,9 +34,16 @@
           <td>{{ artikel.artikelnummerVervanging }}</td>
           <td>{{ artikel.minimumvoorraad }}</td>
           <td>{{ artikel.voorraad }}</td>
+          {% if artikel.minimumvoorraad - artikel.voorraad > 0 %}
           <td>{{ artikel.minimumvoorraad - artikel.voorraad }}</td>
+          {% else %}
+          <td> - </td>
+          {% endif %}
 
-          <td><a href="{{ path('wijzigminvoorraad', {'artikelnummer':artikel.artikelnummer}) }}">Wijzigen minimum voorraad</a></td>
+          <td><a href="{{ path('wijzigartikel', {'artikelnummer':artikel.artikelnummer}) }}">Wijzig artikel</a></td>
+
+          <td><a href="{{ path('wijzigminvoorraad', {'artikelnummer':artikel.artikelnummer}) }}">Wijzig min voorraad</a></td>
+
       </tr>
 
     {% endfor %}
