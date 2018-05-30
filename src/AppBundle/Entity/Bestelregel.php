@@ -68,6 +68,36 @@ class Bestelregel
      */
     private $ontvangen;
 
+    /**
+       * @var string
+         *
+         * @ORM\Column(name="afkeuringscode", type="string")
+         */
+        private $afkeuringscode;
+
+     /**
+         * Get afkeuringscode
+         *
+         * @return string
+         */
+        public function getafkeuringscode()
+        {
+            return $this->afkeuringscode;
+        }
+
+     /**
+         * Set afkeuringscode
+         *
+         * @param string $afkeuringscode
+         *
+         * @return afkeuringscode
+         */
+        public function setafkeuringscode($afkeuringscode)
+        {
+            $this->afkeuringscode = $afkeuringscode;
+
+            return $this;
+        }
 
     /**
      * Get id
