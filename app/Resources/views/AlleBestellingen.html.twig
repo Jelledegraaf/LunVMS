@@ -3,7 +3,7 @@
 	<h1>Alle Bestellingen</h1>
 	{% for Bestelopdracht in Bestelopdrachten %}
 		<ul>
-			<div>{{Bestelopdracht.bestelordernummer}}, {{Bestelopdracht.naamLeverancier}} </div>
+			<li>{{Bestelopdracht.bestelordernummer}}, {{Bestelopdracht.naamLeverancier}} </li>
 			<a href="{{path('alleBestelregels',{'bestelordernummer':Bestelopdracht.bestelordernummer})}}">Bekijken</a>
 		</ul>
   {% endfor %}

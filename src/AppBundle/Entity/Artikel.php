@@ -193,7 +193,7 @@ class Artikel
   }
 
   public function __toString() {
-  return "artikelnummer";
+  return "$this->artikelnummer";
   }
 
 }
