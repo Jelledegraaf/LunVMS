@@ -1,9 +1,30 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-	<h1>Alle Bestelregels</h1>
+<br>
+<div class="panel panel-default">
+  <div class="panel-heading">
+<h1>Alle Bestelregels</h1>
+</div>
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped">
+    <tr>
+        <td>Artikel</td>
+        <td>Aantal</td>
+    </tr>
+
 	{% for Bestelregel in Bestelregels %}
-		<ul>
-			<div>{{Bestelregel.artikelnummer}}, {{Bestelregel.aantal}} </div>
-		</ul>
-  {% endfor %}
+
+      <tr>
+          <td>{{Bestelregel.artikelnummer}}</td>
+          <td>{{Bestelregel.aantal}}</td>
+      </tr>
+
+    {% endfor %}
+
+</table>
+</div>
+</div>
+</div>
+
 {% endblock %}
