@@ -30,7 +30,7 @@ class ArtikelController extends Controller
             return $this->redirect($this->generateurl("nieuwartikel"));
         }
 
-        return new Response($this->renderView('form.html.twig', array('form' => $form->createView())));
+        return new Response($this->render('form.html.twig', array('form' => $form->createView())));
     }
 
     /**

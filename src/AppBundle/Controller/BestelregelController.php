@@ -32,4 +32,15 @@ class BestelregelController extends Controller
 
         return new Response($this->render('form.html.twig', array('form' => $form->createView())));
     }
+
+    /**
+    * @Route("/bestelregel/{bestelordernummer}", name="alleBestelregels")
+    */
+    public function bestelregelsOpBoNr(Request $request, $bestelordernummer) {
+      $bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findByBestelordernummer("$bestelordernummer");
+
+      return new Response($this->render('AlleBestelregels.html.twig', array ('Bestelregels' => $bestelregels)));
+      }
+
+
 }
