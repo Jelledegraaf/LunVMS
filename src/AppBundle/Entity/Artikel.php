@@ -98,14 +98,14 @@ class Artikel
     /**
      * @var string
      *
-     * @ORM\Column(name="voorraad", type="string", length=100, nullable=false)
+     * @ORM\Column(name="voorraad", type="string", length=100, nullable=true)
      */
     private $voorraad;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="bestelserie", type="integer", nullable=false)
+     * @ORM\Column(name="bestelserie", type="integer", nullable=true)
      */
     private $bestelserie;
 
