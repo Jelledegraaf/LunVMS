@@ -34,7 +34,7 @@ class ArtikelController extends Controller
     }
 
     /**
-  * @Route ("/artikel/wijzigminvoorraad/{artikelnummer} ", name="wijzigminvoorraad")
+  * @Route ("/artikel/wijzigminvoorraad/{artikelnummer}", name="wijzigminvoorraad")
   */
  public function wijzigArtikelMV(Request $request, $artikelnummer){
      $bestaandProduct = $this->getDoctrine()->getRepository("AppBundle:Artikel")->find($artikelnummer);
