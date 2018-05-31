@@ -84,7 +84,7 @@ class BestelregelController extends Controller
                 return $this->redirect($this->generateurl("ontvangenBestelregels"));
               }
 
-            return new Response($this->render('form.html.twig', array('form' => $form->createView())));
+            return new Response($this->render('formWijzigBestelregel.html.twig', array('form' => $form->createView())));
             }
 
 }
