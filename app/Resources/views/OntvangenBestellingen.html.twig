@@ -12,6 +12,7 @@
         <th style="width: 10%">Artikel Nr.</th>
         <th>Omschrijving</th>
         <th>Aantal</th>
+        <th>Afgekeurd?</th>
     </tr>
 
     {% for Bestelregel in Bestelregels %}
@@ -27,6 +28,14 @@
           </td>
 
           <td>{{Bestelregel.aantal}}</td>
+          <td>
+            {% if Bestelregel.afgekeurd == "1" %}
+            <p>Ja</p>
+            {% else %}
+            <p>Nee</p>
+            {% endif %}
+        </td>
+
           </tr>
       {% endfor %}
 
