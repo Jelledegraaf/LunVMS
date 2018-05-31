@@ -32,7 +32,7 @@ class BestelregelController extends Controller
             return $this->redirect($this->generateurl("bestelregelnieuw"));
         }
 
-        return new Response($this->renderView('form.html.twig', array('form' => $form->createView())));
+        return new Response($this->renderView('formNieuweBestelregel.html.twig', array('form' => $form->createView())));
     }
 
     /**
