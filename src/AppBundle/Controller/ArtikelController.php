@@ -32,7 +32,7 @@ class ArtikelController extends Controller
             return $this->redirect($this->generateurl("nieuwartikel"));
         }
 
-        return new Response($this->render('form.html.twig', array('form' => $form->createView())));
+        return new Response($this->render('formNieuwArtikel.html.twig', array('form' => $form->createView())));
     }
 
     /**
@@ -50,7 +50,7 @@ class ArtikelController extends Controller
          return $this->redirect($this->generateurl("wijzigArtikel", array("artikelnummer" => $bestaandProduct->getArtikelnummer())));
      }
 
-     return new Response($this->renderView('form.html.twig', array('form' => $form->createView())));
+     return new Response($this->renderView('formWijzigArtikel.html.twig', array('form' => $form->createView())));
  }
 
 
@@ -69,7 +69,7 @@ public function wijzigArtikelMV(Request $request, $artikelnummer){
       return $this->redirect($this->generateurl("wijzigminvoorraad", array("artikelnummer" => $bestaandProduct->getArtikelnummer())));
   }
 
-  return new Response($this->renderView('form.html.twig', array('form' => $form->createView())));
+  return new Response($this->renderView('formWijzigMinVoorraad.html.twig', array('form' => $form->createView())));
 }
 
 
