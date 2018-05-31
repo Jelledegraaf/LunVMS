@@ -10,7 +10,8 @@
 <table class="table table-striped">
     <tr>
         <th>Bestelordernummer</th>
-        <th>Artikel</th>
+        <th style="width: 10%">Artikel Nr.</th>
+        <th>Omschrijving</th>
         <th>Aantal</th>
         <th>Leverancier</th>
         <th>Hoeveelheid</th>
@@ -23,8 +24,8 @@
 
       <tr>
           <td>{{Bestelregel.bestelordernummer}}</td>
+          <td style="width: 10%">{{Bestelregel.artikelnummer}}</td>
           <td>
-          {{Bestelregel.artikelnummer}},
           {% for Artikel in Artikelen %}
           {% if Bestelregel.artikelnummer.artikelnummer == Artikel.artikelnummer %}
           <p> {{Artikel.omschrijving}} </p>
