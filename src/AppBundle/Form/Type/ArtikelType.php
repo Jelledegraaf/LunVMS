@@ -24,8 +24,9 @@ class ArtikelType extends AbstractType
             ->add('magazijnlocatie', TextType::class) //naam is b.v. een attribuut of variabele van klant
             ->add('inkoopprijs', MoneyType::class) //naam is b.v. een attribuut of variabele van klant
             ->add('artikelnummerVervanging', EntityType::class, array (
-                   'class'=>'AppBundle:Artikel',
-                    'choice_label'=>'omschrijving'))
+                  'class'=>'AppBundle:Artikel',
+                  'choice_label'=>'omschrijving',
+                  'label' => 'Artikelvervanging'))
         ;
 		//zie
 		//http://symfony.com/doc/current/forms.html#built-in-field-types
