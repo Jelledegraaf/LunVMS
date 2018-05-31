@@ -31,8 +31,7 @@ class BestelregelType extends AbstractType
        return $er->createQueryBuilder('b')
            ->orderBy('b.bestelordernummer', 'DESC');
            },
-        'choice_label' => 'bestelordernummer',
-        'disabled' => true
+        'choice_label' => 'bestelordernummer'
       ));
     $builder->add('aantal', IntegerType::class);
     $builder->add('keuringseisen', IntegerType::class);
