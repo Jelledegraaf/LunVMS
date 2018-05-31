@@ -50,9 +50,11 @@ class BestelregelController extends Controller
           */
           public function teOnvangenBestelregels(Request $request) {
             $Bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findByontvangen('0');
+            $Artikelen = $this->getDoctrine()->getRepository("AppBundle:Artikel")->findAll();
+            $Bestelopdrachten = $this->getDoctrine()->getRepository("AppBundle:Bestelopdracht")->findAll();
 
 
-            return new Response($this->render('NogTeOntvangen.html.twig', array ('Bestelregels' => $Bestelregels)));
+            return new Response($this->render('NogTeOntvangen.html.twig', array ('Bestelregels' => $Bestelregels, 'Artikelen' => $Artikelen, 'Bestelopdrachten' => $Bestelopdrachten)));
             }
 
             /**
@@ -60,9 +62,10 @@ class BestelregelController extends Controller
             */
             public function ontvangenBestelregels(Request $request) {
               $Bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findByontvangen("1");
+              $Artikelen = $this->getDoctrine()->getRepository("AppBundle:Artikel")->findAll();
 
 
-              return new Response($this->render('OntvangenBestellingen.html.twig', array ('Bestelregels' => $Bestelregels,  //'artikelen' => .....)));
+              return new Response($this->render('OntvangenBestellingen.html.twig', array ('Bestelregels' => $Bestelregels, 'Artikelen' => $Artikelen)));
               }
 
             /**

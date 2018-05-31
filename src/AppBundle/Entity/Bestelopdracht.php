@@ -90,7 +90,7 @@ class Bestelopdracht
 
 
     public function __toString() {
-    return "ordernummer";
+  return "$this->bestelordernummer";
   }
 
   public function __construct()
