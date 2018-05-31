@@ -9,14 +9,23 @@
 <div class="table-responsive">
 <table class="table table-striped">
     <tr>
-        <td>Artikel</td>
+        <td style="width: 10%">Artikel Nr.</td>
+        <td>Omschrijving</td>
         <td>Aantal</td>
     </tr>
 
 	{% for Bestelregel in Bestelregels %}
 
       <tr>
-          <td>{{Bestelregel.artikelnummer}}</td>
+         <td style="width: 10%">{{Bestelregel.artikelnummer}}</td>
+          <td>
+
+          {% for Artikel in Artikelen %}
+          {% if Bestelregel.artikelnummer.artikelnummer == Artikel.artikelnummer %}
+          {{Artikel.omschrijving}}
+          {% endif %}
+          {% endfor %}
+          </td>
           <td>{{Bestelregel.aantal}}</td>
       </tr>
 

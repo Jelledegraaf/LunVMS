@@ -40,8 +40,9 @@ class BestelregelController extends Controller
     */
     public function bestelregelsOpBoNr(Request $request, $bestelordernummer) {
       $bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findByBestelordernummer("$bestelordernummer");
+      $Artikelen = $this->getDoctrine()->getRepository("AppBundle:Artikel")->findAll();
 
-      return new Response($this->render('AlleBestelregels.html.twig', array ('Bestelregels' => $bestelregels)));
+      return new Response($this->render('AlleBestelregels.html.twig', array ('Bestelregels' => $bestelregels, 'Artikelen' => $Artikelen)));
       }
 
 

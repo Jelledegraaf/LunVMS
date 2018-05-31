@@ -1,10 +1,31 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-	<h1>Alle Bestellingen</h1>
+<br>
+<div class="panel panel-default">
+  <div class="panel-heading">
+<h1>Bestelde artikelen</h1>
+</div>
+<div class="panel-body">
+<div class="table-responsive">
+<table class="table table-striped">
+    <tr>
+        <td>Bestelordernummer</td>
+        <td>Leverancier</td>
+				<td>Opties</td>
+    </tr>
+
 	{% for Bestelopdracht in Bestelopdrachten %}
-		<ul>
-			<li>{{Bestelopdracht.bestelordernummer}}, {{Bestelopdracht.naamLeverancier}} </li>
-			<a href="{{path('alleBestelregels',{'bestelordernummer':Bestelopdracht.bestelordernummer})}}">Bekijken</a>
-		</ul>
-  {% endfor %}
+
+      <tr>
+          <td>{{Bestelopdracht.bestelordernummer}}</td>
+          <td>{{Bestelopdracht.naamLeverancier}}</td>
+					<td><a href="{{path('alleBestelregels',{'bestelordernummer':Bestelopdracht.bestelordernummer})}}">Bekijken</a></td>
+      </tr>
+
+    {% endfor %}
+
+</table>
+</div>
+</div>
+</div>
 {% endblock %}
