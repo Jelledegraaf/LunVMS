@@ -75,7 +75,8 @@ class Bestelregel
      * @ORM\Column(name="keuringseisen", type="integer", nullable=true)
      * @Assert\Length(
      *      max = 4,
-     *      maxMessage = "Mag niet meer zijn dan {{ limit }} cijfers"
+     *      min=4,
+     *      exactMessage = "Waarde moet {{ limit }} cijfers lang zijn"
      *)
      */
     private $keuringseisen;
