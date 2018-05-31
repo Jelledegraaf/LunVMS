@@ -12,7 +12,6 @@
         <th>Bestelordernummer</th>
         <th style="width: 10%">Artikel Nr.</th>
         <th>Omschrijving</th>
-        <th>Aantal</th>
         <th>Leverancier</th>
         <th>Hoeveelheid</th>
         <th>Artikellocatie</th>
@@ -32,7 +31,6 @@
           {% endif %}
           {% endfor %}
           </td>
-          <td>{{Bestelregel.aantal}}</td>
           <td>
             {% for Bestelopdracht in Bestelopdrachten %}
             {% if Bestelregel.bestelordernummer.bestelordernummer == Bestelopdracht.bestelordernummer %}

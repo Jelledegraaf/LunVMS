@@ -64,9 +64,10 @@ class BestelregelController extends Controller
             public function ontvangenBestelregels(Request $request) {
               $Bestelregels = $this->getDoctrine()->getRepository("AppBundle:Bestelregel")->findByontvangen("1");
               $Artikelen = $this->getDoctrine()->getRepository("AppBundle:Artikel")->findAll();
+              $Bestelopdrachten = $this->getDoctrine()->getRepository("AppBundle:Bestelopdracht")->findAll();
 
 
-              return new Response($this->render('OntvangenBestellingen.html.twig', array ('Bestelregels' => $Bestelregels, 'Artikelen' => $Artikelen)));
+              return new Response($this->render('OntvangenBestellingen.html.twig', array ('Bestelregels' => $Bestelregels, 'Artikelen' => $Artikelen, 'Bestelopdrachten' => $Bestelopdrachten)));
               }
 
             /**

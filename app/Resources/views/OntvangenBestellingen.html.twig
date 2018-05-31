@@ -9,15 +9,19 @@
 <div class="table-responsive">
 <table class="table table-striped">
     <tr>
+       <th>Bestelordernummer</th>
         <th style="width: 10%">Artikel Nr.</th>
         <th>Omschrijving</th>
-        <th>Aantal</th>
+        <th>Leverancier</th>
+        <th>Hoeveelheid</th>
+        <th>Kwaliteit</th>
         <th>Afgekeurd?</th>
     </tr>
 
     {% for Bestelregel in Bestelregels %}
 
         <tr>
+          <td>{{Bestelregel.bestelordernummer}}</td>
           <td style="width: 10%">{{Bestelregel.artikelnummer}}</td>
           <td>
           {% for Artikel in Artikelen %}
@@ -27,7 +31,16 @@
           {% endfor %}
           </td>
 
+          <td>
+            {% for Bestelopdracht in Bestelopdrachten %}
+            {% if Bestelregel.bestelordernummer.bestelordernummer == Bestelopdracht.bestelordernummer %}
+            {{Bestelregel.bestelordernummer.naamLeverancier}}
+            {% endif %}
+            {% endfor %}
+          </td>
+
           <td>{{Bestelregel.aantal}}</td>
+          <td>{{Bestelregel.keuringseisen}}</td>
           <td>
             {% if Bestelregel.afgekeurd == "1" %}
             <p>Ja</p>
