@@ -1,25 +1,32 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-
-
-<h1>zoekresultaten</h1>
-
-<table>
-    <tr>
-        <td>Magazijn Locatie</td>
-
-    </tr>
-
-    {% for artikel in artikelen %}
-
+<br>
+<div class="panel panel-default">
+  <div class="panel-heading">
+<h3>Zoekresultaten<h3>
+</div>
+<div class="panel-body">
+  <div class="table-responsive">
+  <table class="table table-striped">
       <tr>
-          <td>{{ artikel.magazijnlocatie }}</td>
-
+          <th>Artikel</th>
+          <th>Magazijnlocatie</th>
       </tr>
 
-    {% endfor %}
+      {% for artikel in artikelen %}
 
-</table>
+        <tr>
+          <td>{{ artikel.omschrijving }}</td>
+            <td>{{ artikel.magazijnlocatie }}</td>
+
+        </tr>
+
+      {% endfor %}
+
+  </table>
+  </div>
+</div>
+</div>
 
 
 
