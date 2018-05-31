@@ -19,8 +19,7 @@
         <th>Minimum Voorraad</th>
         <th>Voorraad</th>
         <th>Bestelserie</th>
-        <th>Wijzig Artikel</th>
-        <th>Wijzig minimale voorraad</th>
+        <th>Opties</th>
     </tr>
 
     {% for artikel in artikelen %}
@@ -40,9 +39,9 @@
           <td> - </td>
           {% endif %}
 
-          <td><a href="{{ path('wijzigartikel', {'artikelnummer':artikel.artikelnummer}) }}">Wijzig artikel</a></td>
-
-          <td><a href="{{ path('wijzigminvoorraad', {'artikelnummer':artikel.artikelnummer}) }}">Wijzig min voorraad</a></td>
+          <td>
+            <p><a href="{{ path('wijzigartikel', {'artikelnummer':artikel.artikelnummer}) }}"><i class="fa fa-edit fa-fw"></i>Wijzig artikel</a>
+          <a href="{{ path('wijzigminvoorraad', {'artikelnummer':artikel.artikelnummer}) }}"><i class="fa fa-edit fa-fw"></i>Wijzig min voorraad</a></p></td>
 
       </tr>
 
