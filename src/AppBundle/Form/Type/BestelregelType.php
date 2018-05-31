@@ -29,8 +29,9 @@ class BestelregelType extends AbstractType
         'choice_label' => 'bestelordernummer',
     ));
     $builder->add('aantal', IntegerType::class);
+    $builder->add('keuringseisen', IntegerType::class);
 
-        //naam is b.v. een attribuut of variabele van klant
+    //naam is b.v. een attribuut of variabele van klant
 		//zie
 		//http://symfony.com/doc/current/forms.html#built-in-field-types
 		//voor meer typen invoer

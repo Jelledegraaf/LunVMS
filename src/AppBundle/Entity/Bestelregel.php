@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Bestelregel
@@ -69,11 +70,22 @@ class Bestelregel
     private $ontvangen;
 
     /**
-       * @var string
-         *
-         * @ORM\Column(name="afkeuringscode", type="string", nullable=true)
-         */
-        private $afkeuringscode;
+     * @var int
+     *
+     * @ORM\Column(name="keuringseisen", type="integer", nullable=true)
+     * @Assert\Length(
+     *      max = 4,
+     *      maxMessage = "Mag niet meer zijn dan {{ limit }} cijfers"
+     *)
+     */
+    private $keuringseisen;
+
+    /**
+    * @var string
+    *
+    * @ORM\Column(name="afkeuringscode", type="string", nullable=true)
+    */
+    private $afkeuringscode;
 
      /**
          * Get afkeuringscode
@@ -274,4 +286,30 @@ class Bestelregel
     {
         return $this->ontvangen;
     }
+
+    /**
+     * Set keuringseisen
+     *
+     * @param integer $keuringseisen
+     *
+     * @return Bestelregel
+     */
+    public function setKeuringseisen($keuringseisen)
+    {
+        $this->keuringseisen = $keuringseisen;
+
+        return $this;
+    }
+
+    /**
+     * Get keuringseisen
+     *
+     * @return int
+     */
+    public function getKeuringseisen()
+    {
+        return $this->keuringseisen;
+    }
+
+
 }
