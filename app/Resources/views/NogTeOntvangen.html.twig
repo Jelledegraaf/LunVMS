@@ -15,6 +15,7 @@
         <td>Leverancier</td>
         <td>Hoeveelheid</td>
         <td>Artikellocatie</td>
+        <td>Keuringseisen</td>
         <td>Ontvangst</td>
     </tr>
 
@@ -43,9 +44,10 @@
             {% for Artikel in Artikelen %}
             {% if Bestelregel.artikelnummer.artikelnummer == Artikel.artikelnummer %}
             {{Artikel.magazijnlocatie}}
+            </td>
             {% endif %}
             {% endfor %}
-          </td>
+            <td>{{Bestelregel.keuringseisen}}</td>
           <td><a href="{{ path('ontvangstWijzigen',{'id':Bestelregel.id}) }}"><i class="fa fa-gift fa-fw"></i>Bijwerken</a></td>
       </tr>
 
