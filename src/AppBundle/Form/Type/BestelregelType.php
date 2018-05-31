@@ -5,13 +5,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrin\Form\orderBy;
 use App\Entity\Artikel;
 use App\Entity\Bestelopdracht;
 use App\Entity\Bestelregel;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-
+use AppBundle\Repository\BestelopdrachtRepository;
 
 //EntiteitType vervangen door b.v. KlantType
 class BestelregelType extends AbstractType
@@ -26,8 +27,13 @@ class BestelregelType extends AbstractType
     ));
     $builder->add('bestelordernummer', EntityType::class, array(
         'class' => 'AppBundle:Bestelopdracht',
+        'query_builder' => function (BestelopdrachtRepository $er) {
+       return $er->createQueryBuilder('b')
+           ->orderBy('b.bestelordernummer', 'DESC');
+           },
         'choice_label' => 'bestelordernummer',
-    ));
+        'disabled' => true
+      ));
     $builder->add('aantal', IntegerType::class);
     $builder->add('keuringseisen', IntegerType::class);
 
