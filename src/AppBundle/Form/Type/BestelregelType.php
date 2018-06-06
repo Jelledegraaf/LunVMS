@@ -34,7 +34,6 @@ class BestelregelType extends AbstractType
         'choice_label' => 'bestelordernummer'
       ));
     $builder->add('aantal', IntegerType::class);
-    $builder->add('keuringseisen', IntegerType::class);
 
     //naam is b.v. een attribuut of variabele van klant
 		//zie

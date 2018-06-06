@@ -34,20 +34,6 @@ class NieuwOntvangstType extends AbstractType
                     'Nee' => false
                 )));
         $builder
-                  ->add('Afkeuringscode', ChoiceType::class, array(
-          'choices'  => array(
-              '00 - Kwaliteit van product is goed' => '00 Kwaliteit van product is goed',
-              '01 - Verpakking is stuk' => '01 - Verpakking is stuk',
-              '02- Product is beschadigd' => '02- Product is beschadigd',
-              '03- Verkeerd geleverd artikel (niet besteld)' => '03- Verkeerd geleverd artikel (niet besteld)',
-              '04- Verpakking is opengemaakt' => '04- Verpakking is open gemaakt',
-              '05- Voldoet niet aan de kwaliteit' => '05- Voldoet niet aan de kwaliteit',
-              '99- Overige' => '99- Overige'
-
-          ),
-      ));
-              ;
-        $builder
             ->add('ontvangen', ChoiceType::class, array(
             'choices'  => array(
                 'Ja' => 1,

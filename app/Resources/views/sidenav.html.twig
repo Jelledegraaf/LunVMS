@@ -13,11 +13,11 @@
                 <ul class="nav nav-second-level">
                     <!--Link naar Overzicht Artikelen-->
                     <li>
-                        <a href="{{ path('alleartikelen') }}"><i class="fa fa-list-alt fa-fw"></i>Overzicht Artikelen</a>
+                        <a href="{{ path('alleArtikelen') }}"><i class="fa fa-list-alt fa-fw"></i>Overzicht Artikelen</a>
                     </li>
                     <!--Link naar Nieuwe Bestelling-->
                     <li>
-                        <a href="{{ path('nieuwartikel') }}"><i class="fa fa-tag fa-fw"></i>Nieuw Artikel</a>
+                        <a href="{{ path('nieuwArtikel') }}"><i class="fa fa-tag fa-fw"></i>Nieuw Artikel</a>
                     </li>
                 </ul>
             </li>
@@ -32,7 +32,7 @@
                     </li>
                     <!--Link naar Nieuwe Bestelling-->
                     <li>
-                        <a href="{{ path('bestelopdrachtnieuw') }}"><i class="fa fa-file fa-fw"></i>Nieuwe Bestelling</a>
+                        <a href="{{ path('bestelopdrachtNieuw') }}"><i class="fa fa-file fa-fw"></i>Nieuwe Bestelling</a>
                     </li>
                 </ul>
             </li>
@@ -45,17 +45,20 @@
                     <li>
                         <a href="{{ path('teOntvangenBestelregels') }}"><i class="fa fa-list-alt fa-fw"></i>Nog te ontvangen</a>
                     </li>
+                    <!--Link naar goedgekeurde bestellingen-->
+                    <li>
+                        <a href="{{ path('goedgekeurdeBestellingen') }}"><i class="fa fa-list-alt fa-fw"></i>Ontvangen Goederen</a>
+                    </li>
                     <!--Link naar Overzicht Ontvangen-->
                     <li>
-                        <a href="{{ path('ontvangenBestelregels') }}"><i class="fa fa-list-alt fa-fw"></i>Ontvangen Goederen</a>
+                        <a href="{{ path('afgekeurdeBestellingen') }}"><i class="fa fa-list-alt fa-fw"></i>Afgekeurde Goederen</a>
                     </li>
-
                 </ul>
             </li>
 
             <!--Kopje zoekenartikel-->
           <li>
-              <a href="{{ path('zoekenartikel') }}"><i class="fa fa-search fa-fw"></i>Zoeken<span class="fa arrow"></span></a>
+              <a href="{{ path('zoekenArtikel') }}"><i class="fa fa-search fa-fw"></i>Zoeken<span class="fa arrow"></span></a>
           </li>
 
         </ul>

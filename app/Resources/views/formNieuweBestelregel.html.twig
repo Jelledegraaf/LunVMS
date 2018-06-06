@@ -8,8 +8,9 @@
 <div class="panel-body">
 <form method="post" action="">
     {{ form_widget(form) }}
-    <input class="btn btn-default" type="submit">
-    <a href="javascript:history.back()">Annuleren</a>
+    <input class="btn btn-default" type="submit" value="Bestelregel toevoegen">
+    <input class="btn btn-default" type="button" onclick="javascript:history.back()" value="Annuleren">
+    <a href="{{ path('alleBestellingen') }}"> <input class="btn btn-default" type="button" value="Bestelling afronden"> </a> 
 </form>
 </div>
 </div>

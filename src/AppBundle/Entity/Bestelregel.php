@@ -70,18 +70,6 @@ class Bestelregel
     private $ontvangen;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="keuringseisen", type="integer", nullable=true)
-     * @Assert\Length(
-     *      max = 4,
-     *      min=4,
-     *      exactMessage = "Waarde moet {{ limit }} cijfers lang zijn"
-     *)
-     */
-    private $keuringseisen;
-
-    /**
     * @var string
     *
     * @ORM\Column(name="afkeuringscode", type="string", nullable=true)
@@ -287,30 +275,4 @@ class Bestelregel
     {
         return $this->ontvangen;
     }
-
-    /**
-     * Set keuringseisen
-     *
-     * @param integer $keuringseisen
-     *
-     * @return Bestelregel
-     */
-    public function setKeuringseisen($keuringseisen)
-    {
-        $this->keuringseisen = $keuringseisen;
-
-        return $this;
-    }
-
-    /**
-     * Get keuringseisen
-     *
-     * @return int
-     */
-    public function getKeuringseisen()
-    {
-        return $this->keuringseisen;
-    }
-
-
 }
